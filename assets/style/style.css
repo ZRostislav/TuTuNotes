@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Ubuntu+Condensed&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Comfortaa", cursive;
+  font-family: "Ubuntu Condensed", sans-serif;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+body {
+  opacity: 1;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Начальные стили */
+#changing-text {
+  /* animation: typing 2s; */
+  white-space: nowrap; /* Для сохранения текста в одной строке */
+  overflow: hidden; /* Для скрытия избыточного текста */
+}
+/* Анимация удаления текста */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Анимация печати */
+@keyframes typing {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes toping {
+  from {
+    position: relative;
+    top: 0px;
+  }
+  to {
+    position: relative;
+    top: -380px;
+    font-size: 60px;
+  }
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+
+  opacity: 0;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  resize: none;
+}
+
+.note {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.note {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.note:hover {
+  transform: translateY(0);
+}
+
+/* CSS для анимации появления заметок */
+.note {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.note.exiting {
+  animation: fadeOut2 0.5s ease-in-out forwards;
+}
+
+/* Анимация удаления заметок */
+@keyframes fadeOut2 {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Анимация кнопки */
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* Анимация возвращения add-note на место */
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+#add-note.exiting {
+  animation: slideIn 0.5s ease-in-out forwards;
+}
+
+.exiting {
+  animation: slideIn 0.5s ease-in-out forwards;
+}
+
+@keyframes slideInAddNote {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+#add-note {
+  animation: slideInAddNote 0.5s ease-in-out forwards;
+}
